@@ -58,11 +58,15 @@ WantedBy=multi-user.target
 
 ### Open Terminal and Run the command
 
+```bash
 sudo cp emailsender.service ../../../../lib/systemd/system/
+```
 
 OR
 
+```bash
 sudo mv emailsender.service ../../../../lib/systemd/system/
+```
 
 ### Open New Tab and Run the command
 
