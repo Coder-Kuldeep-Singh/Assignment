@@ -7,9 +7,9 @@ Restart=always
 RestartSec=5s
 Environment=FROM="YOUR MAIL ID"
 Environment=PASS="YOUR MAIL PASSWORD"
-Environment=DBHOST="localhost"
-Environment=DBUSER="root"
-Environment=DBPASS="12qwaszx"
+Environment=DBHOST="YOUR DB HOST"
+Environment=DBUSER="YOUR DB USER"
+Environment=DBPASS="YOUR DB PASSWORD"
 Environment=DBPORT="3306"
 ExecStart=/home/tutree/Desktop/Assignment/app
 
