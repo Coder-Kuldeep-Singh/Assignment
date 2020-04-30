@@ -1,0 +1,17 @@
+[Unit]
+Description=emailsender
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+Environment=FROM="YOUR MAIL ID"
+Environment=PASS="YOUR MAIL PASSWORD"
+Environment=DBHOST="localhost"
+Environment=DBUSER="root"
+Environment=DBPASS="12qwaszx"
+Environment=DBPORT="3306"
+ExecStart=/home/tutree/Desktop/Assignment/app
+
+[Install]
+WantedBy=multi-user.target
