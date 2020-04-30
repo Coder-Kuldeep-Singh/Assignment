@@ -2,7 +2,7 @@
 
 Create an application using Golang (using any database or in-memory storage) which sends out the Good Morning emails to all the users at 8 AM according to the different time zones of the users.
 
-#Follow The Guidelines To setup the [EmailSender] Software
+# Follow The Guidelines To setup the [EmailSender] Software
 
 ## Installation
 
