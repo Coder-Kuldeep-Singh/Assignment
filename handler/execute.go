@@ -15,7 +15,7 @@ func Execute(body string, wg *sync.WaitGroup) {
 	if usertimezone == nil {
 		return
 	}
-	var AllLocations []string
+	var AllLocations string
 
 	for _, Location := range usertimezone {
 		wg.Add(1)
@@ -49,19 +49,21 @@ func Execute(body string, wg *sync.WaitGroup) {
 
 		if LocationTime == Comparision {
 			fmt.Println(Location)
-			AllLocations = append(AllLocations, Location)
+			// AllLocations = append(AllLocations, Location)
+			AllLocations = Location
 		}
 	}
 	fmt.Println("*************************************************************************************************************")
-	for _, Location := range AllLocations {
-		user := models.GetEmails(Location)
-		if user == nil {
-			return
-		}
-		for _, user := range user {
-			wg.Add(1)
-			go mails.SendEmail(body, user, wg)
-		}
+	// for _, Location := range AllLocations {
+	user := models.GetEmails(AllLocations)
+	if user == nil {
+		return
 	}
+	// fmt.Println(user)
+	for _, users := range user {
+		wg.Add(1)
+		go mails.SendEmail(body, users, wg)
+	}
+	// }
 	wg.Wait()
 }
