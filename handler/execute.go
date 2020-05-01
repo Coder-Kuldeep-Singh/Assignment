@@ -26,16 +26,24 @@ func Execute(body string, wg *sync.WaitGroup) {
 		}
 
 		current_time := time.Now().In(loc)
-		destinationTime := current_time.Format("2006-April-02 15:04:05")
-		LocationTime := destinationTime
-		fmt.Printf("Location: {%v} LocationTime: {%v}\n", Location, LocationTime)
+		// fmt.Println(current_time)
+
+		// destinationTime := current_time.Format("2006-05-01 15:04:05")
+		// LocationTime := destinationTime
 
 		destinationYear := current_time.Year()
 		destinationMonth := current_time.Month()
 		destinationDay := current_time.Day()
+		destinationHour := current_time.Hour()
+		destinationMinute := current_time.Minute()
+		destinationSeconds := current_time.Second()
+
+		LocationTime := fmt.Sprintf("%v-%v-%v %v:%v:%v", destinationYear, destinationMonth, destinationDay, destinationHour, destinationMinute, destinationSeconds)
+		fmt.Printf("Location: {%v} LocationTime: {%v}\n", Location, LocationTime)
 
 		// Time to match which time we have to send the email to clients
-		Time := fmt.Sprintf("%v-%v-%v 08:00:00", destinationYear, destinationMonth, destinationDay)
+		Time := fmt.Sprintf("%v-%v-%v 14:57:0", destinationYear, destinationMonth, destinationDay)
+		fmt.Println(Time)
 
 		Comparision := Time
 
