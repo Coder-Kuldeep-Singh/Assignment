@@ -23,7 +23,7 @@ func GetLocation() []string {
 		var usertimezone string
 		err = query.Scan(&usertimezone)
 		if err != nil {
-			log.Println("Error to Execute Statements")
+			log.Printf("Error to Execute Statements {%v}\n", err)
 			return nil
 		}
 		UserTimeZone = append(UserTimeZone, usertimezone)
