@@ -9,7 +9,7 @@ Create an application using Golang (using any database or in-memory storage) whi
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/mavensingh/emailsender
+https://github.com/mavensingh/Assignment/
 ```
 
 ### Setup The database
