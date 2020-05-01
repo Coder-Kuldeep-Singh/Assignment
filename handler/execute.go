@@ -26,10 +26,6 @@ func Execute(body string, wg *sync.WaitGroup) {
 		}
 
 		current_time := time.Now().In(loc)
-		// fmt.Println(current_time)
-
-		// destinationTime := current_time.Format("2006-05-01 15:04:05")
-		// LocationTime := destinationTime
 
 		destinationYear := current_time.Year()
 		destinationMonth := current_time.Month()
@@ -49,21 +45,17 @@ func Execute(body string, wg *sync.WaitGroup) {
 
 		if LocationTime == Comparision {
 			fmt.Println(Location)
-			// AllLocations = append(AllLocations, Location)
 			AllLocations = Location
 		}
 	}
 	fmt.Println("*************************************************************************************************************")
-	// for _, Location := range AllLocations {
 	user := models.GetEmails(AllLocations)
 	if user == nil {
 		return
 	}
-	// fmt.Println(user)
 	for _, users := range user {
 		wg.Add(1)
 		go mails.SendEmail(body, users, wg)
 	}
-	// }
 	wg.Wait()
 }
