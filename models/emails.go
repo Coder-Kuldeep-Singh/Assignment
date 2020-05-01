@@ -26,7 +26,7 @@ func GetEmails(Location string) []string {
 		var user string
 		err = query.Scan(&user)
 		if err != nil {
-			log.Println("Error Second Query")
+			log.Println("Error in Second Query {%v}", err)
 			return nil
 		}
 		UserEmail = append(UserEmail, user)
