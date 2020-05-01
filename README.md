@@ -49,7 +49,7 @@ Environment=PASS="YOUR MAIL PASSWORD"
 Environment=DBHOST="DATABASE HOST"
 Environment=DBUSER="DATABASE USER "
 Environment=DBPASS="DATABASE PASSWORD"
-Environment=DBPORT="3306"
+Environment=DBPORT="DATABASE PORT"
 ExecStart=/home/tutree/Desktop/Assignment/app
 
 [Install]
@@ -98,6 +98,31 @@ systemctl status emailsender
            └─31540 /home/tutree/Desktop/Assignment/app
 
 May 01 13:45:50 tutree-ThinkPad-X240 systemd[1]: Started emailsender.
+```
+
+## Alternative
+
+### Modified the env.sh file
+
+```bash
+export FROM="YOUR EMAIL ADDRESS"
+export PASS="YOUR EMAIL PASSWORD"
+export DBHOST="DATABASE HOST"
+export DBUSER="DATABASE USER"
+export DBPASS="DATABASE PASSWORD"
+export DBPORT="DATABASE PORT"
+```
+
+### Source the env.sh file
+
+```bash
+source env.sh
+```
+
+### Run the Binary
+
+```bash
+./app
 ```
 
 #### Note: Run [systemctl status emailsender] to check Service Running in background or not
