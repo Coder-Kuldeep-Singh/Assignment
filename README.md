@@ -86,4 +86,18 @@ systemctl start emailsender
 systemctl status emailsender
 ```
 
+###Output
+
+```bash
+● emailsender.service - emailsender
+   Loaded: loaded (/lib/systemd/system/emailsender.service; disabled; vendor preset: enabled)
+   Active: active (running) since Fri 2020-05-01 13:45:50 IST; 2s ago
+ Main PID: 31540 (app)
+    Tasks: 7 (limit: 4915)
+   CGroup: /system.slice/emailsender.service
+           └─31540 /home/tutree/Desktop/Assignment/app
+
+May 01 13:45:50 tutree-ThinkPad-X240 systemd[1]: Started emailsender.
+```
+
 #### Note: Run [systemctl status emailsender] to check Service Running in background or not
