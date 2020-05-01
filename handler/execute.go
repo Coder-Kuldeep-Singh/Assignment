@@ -42,7 +42,7 @@ func Execute(body string, wg *sync.WaitGroup) {
 		fmt.Printf("Location: {%v} LocationTime: {%v}\n", Location, LocationTime)
 
 		// Time to match which time we have to send the email to clients
-		Time := fmt.Sprintf("%v-%v-%v 14:57:0", destinationYear, destinationMonth, destinationDay)
+		Time := fmt.Sprintf("%v-%v-%v 8:0:0", destinationYear, destinationMonth, destinationDay)
 		fmt.Println(Time)
 
 		Comparision := Time
