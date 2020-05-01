@@ -119,6 +119,12 @@ export DBPORT="DATABASE PORT"
 source env.sh
 ```
 
+### Build the Software
+
+```bash
+go build -o app
+```
+
 ### Run the Binary
 
 ```bash
