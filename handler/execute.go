@@ -10,11 +10,7 @@ import (
 )
 
 // Execute function Is the combination of the all functions to run
-func Execute(body string, wg *sync.WaitGroup) {
-	usertimezone := models.GetLocation()
-	if usertimezone == nil {
-		return
-	}
+func Execute(body string, usertimezone []string, wg *sync.WaitGroup) {
 	var AllLocations string
 
 	for _, Location := range usertimezone {
@@ -38,7 +34,7 @@ func Execute(body string, wg *sync.WaitGroup) {
 		fmt.Printf("Location: {%v} LocationTime: {%v}\n", Location, LocationTime)
 
 		// Time to match which time we have to send the email to clients
-		Time := fmt.Sprintf("%v-%v-%v 8:0:0", destinationYear, destinationMonth, destinationDay)
+		Time := fmt.Sprintf("%v-%v-%v 18:0:0", destinationYear, destinationMonth, destinationDay)
 		fmt.Println(Time)
 
 		Comparision := Time
@@ -49,13 +45,17 @@ func Execute(body string, wg *sync.WaitGroup) {
 		}
 	}
 	fmt.Println("*************************************************************************************************************")
+
 	user := models.GetEmails(AllLocations)
 	if user == nil {
 		return
 	}
+
+	// Send Email
 	for _, users := range user {
 		wg.Add(1)
 		go mails.SendEmail(body, users, wg)
 	}
+
 	wg.Wait()
 }
